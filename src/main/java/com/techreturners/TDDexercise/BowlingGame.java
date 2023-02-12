@@ -16,6 +16,12 @@ public class BowlingGame {
                     break;
                 }
             }
+
+            else if(AllFramesScore.charAt(roll) == 'X'){
+               score=score+10+Character.getNumericValue(AllFramesScore.charAt(roll + 2));
+                       //+Character.getNumericValue(AllFramesScore.charAt(roll + 3));
+            }
+
             else if(Character.isDigit(AllFramesScore.charAt(roll))){
                 score=score+Character.getNumericValue(AllFramesScore.charAt(roll));
             }

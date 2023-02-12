@@ -50,4 +50,22 @@ public class BowlingGameTest {
 
         assertEquals(150,bowlingGame.getBowlingScore(AllFramesScore));
     }
+
+    @Test
+    public void getScoreForStrike(){
+        BowlingGame bowlingGame=new BowlingGame();
+
+        String AllFramesScore="X 54 54 54 54 54 54 54 54 54";
+
+        assertEquals(100,bowlingGame.getBowlingScore(AllFramesScore));
+    }
+
+    @Test
+    public void getScoreForStrikeAndMiss(){
+        BowlingGame bowlingGame=new BowlingGame();
+
+        String AllFramesScore="X 5- 54 54 54 54 54 54 54 54";
+
+        assertEquals(92,bowlingGame.getBowlingScore(AllFramesScore));
+    }
 }
