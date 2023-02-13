@@ -6,66 +6,93 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingGameTest {
     @Test
-    public void getScoreforNumbers(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreforNumbers() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="54 54 54 54 54 54 54 54 54 54";
+        String AllFramesScore = "54 54 54 54 54 54 54 54 54 54";
 
-        assertEquals(90,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(90, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
 
     @Test
-    public void getScoreforMissedKnocks(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreforMissedKnocks() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="9- 8- 9- 9- 9- 9- 9- 9- 9- 9-";
+        String AllFramesScore = "9- 8- 9- 9- 9- 9- 9- 9- 9- 9-";
 
-        assertEquals(89,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(89, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
     @Test
-    public void getScoreForSpareFrame(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreForSpareFrame() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 54";
+        String AllFramesScore = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 54";
 
-        assertEquals(144,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(144, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
     @Test
-    public void getScoreForSpareFrameWithMiss(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreForSpareFrameWithMiss() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5-";
+        String AllFramesScore = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5-";
 
-        assertEquals(140,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(140, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
     @Test
-    public void getScoreForAllSpareFrames(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreForAllSpareFrames() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5";
+        String AllFramesScore = "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5";
 
-        assertEquals(150,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(150, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
     @Test
-    public void getScoreForStrike(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreForStrike() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="X 54 54 54 54 54 54 54 54 54";
+        String AllFramesScore = "X 54 54 54 54 54 54 54 54 54";
 
-        assertEquals(100,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(100, bowlingGame.getBowlingScore(AllFramesScore));
     }
 
     @Test
-    public void getScoreForStrikeAndMiss(){
-        BowlingGame bowlingGame=new BowlingGame();
+    public void getScoreForStrikeAndMiss() {
+        BowlingGame bowlingGame = new BowlingGame();
 
-        String AllFramesScore="X 5- 54 54 54 54 54 54 54 54";
+        String AllFramesScore = "X 5- 54 54 54 54 54 54 54 54";
 
-        assertEquals(92,bowlingGame.getBowlingScore(AllFramesScore));
+        assertEquals(92, bowlingGame.getBowlingScore(AllFramesScore));
+    }
+
+    @Test
+    public void getScoreForTwoStrikes() {
+        BowlingGame bowlingGame = new BowlingGame();
+
+        String AllFramesScore = "X X 54 54 54 54 54 54 54 54";
+
+        assertEquals(116, bowlingGame.getBowlingScore(AllFramesScore));
+    }
+
+    @Test
+    public void getScoreForAllStrikes() {
+        BowlingGame bowlingGame = new BowlingGame();
+
+        String AllFramesScore = "X X X X X X X X X X X X";
+
+        assertEquals(300, bowlingGame.getBowlingScore(AllFramesScore));
+    }
+
+    @Test
+    public void getScoreForStrikeAndSpare() {
+        BowlingGame bowlingGame = new BowlingGame();
+
+        String AllFramesScore = "X X X X X X X X X 5/5";
+
+        assertEquals(270, bowlingGame.getBowlingScore(AllFramesScore));
     }
 }
